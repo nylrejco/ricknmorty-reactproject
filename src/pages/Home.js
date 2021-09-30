@@ -5,16 +5,16 @@ import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 const Home = () => {
   const auth = getAuth();
-  onAuthStateChanged(auth, (user) => {
-    if (!user) {
-      // User is not signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.replace("/login");
-      // const uid = user.uid;
-      // console.log(uid)
-      // ...
-    }
-  });
+  // onAuthStateChanged(auth, (user) => {
+  //   if (!user) {
+  //     // User is not signed in, see docs for a list of available properties
+  //     // https://firebase.google.com/docs/reference/js/firebase.User
+  //     window.location.replace("/login");
+  //     // const uid = user.uid;
+  //     // console.log(uid)
+  //     // ...
+  //   }
+  // });
 
   const onSignOut = () => {
     signOut(auth)
