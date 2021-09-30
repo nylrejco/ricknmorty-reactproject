@@ -19,7 +19,7 @@ const Home = () => {
   const onSignOut = () => {
     signOut(auth)
       .then(() => {
-        window.replace.location("/login");
+        // window.replace.location("/login");
         // Sign-out successful.
       })
       .catch((error) => {
