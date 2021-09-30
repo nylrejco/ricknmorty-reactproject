@@ -45,7 +45,6 @@ const LoginForm = () => {
 
   return (
     <div>
-
       <div className="container my-5">
         <h2 className="text-center my-5">Enter your credentials</h2>
         <div className="row">
@@ -78,7 +77,6 @@ const LoginForm = () => {
         </div>
       </div>
     </div>
-    
   );
 };
 
