@@ -1,8 +1,7 @@
-import { confirmPasswordReset } from "@firebase/auth";
 import React, { useState } from "react";
 
 const Character = (props) => {
-  const { id, name, status, species, origin, location, image, episode } = props;
+  const { id, name, status, species, location, image, episode } = props;
   const [firstAppearannce, setfirstAppearannce] = useState("");
   const [firstAppearannceURL, setfirstAppearannceURL] = useState("");
 
@@ -15,7 +14,10 @@ const Character = (props) => {
 
   return (
     <div className="col-lg-3 col-md-4 col-sm-6">
-      <div className="card fluid" style={{ width: "14rem", margin: "2rem", height: "30rem"}}>
+      <div
+        className="card fluid"
+        style={{ width: "14rem", margin: "2rem", height: "30rem" }}
+      >
         <img src={image} className="card-img-top" alt={`${id} : ${name}`} />
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
