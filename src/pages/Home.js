@@ -5,7 +5,9 @@ import NavBar from "../components/NavBar";
 
 const Home = () => {
   const [episodeFilter, setEpisodeFilter] = useState([]);
+  const [locationFilter, setLocationFilter] = useState([]);
   const auth = getAuth();
+
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       // User is not signed in, see docs for a list of available properties
@@ -42,6 +44,8 @@ const Home = () => {
         <NavBar
           episodeFilter={episodeFilter}
           setEpisodeFilter={setEpisodeFilter}
+          locationFilter={locationFilter}
+          setLocationFilter={setLocationFilter}
         />
       </div>
       <h2>Home Page</h2>
@@ -56,6 +60,8 @@ const Home = () => {
         <CharacterList
           episodeFilter={episodeFilter}
           setEpisodeFilter={setEpisodeFilter}
+          locationFilter={locationFilter}
+          setLocationFilter={setLocationFilter}
         />
       </div>
     </div>

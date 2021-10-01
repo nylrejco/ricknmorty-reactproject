@@ -1,14 +1,27 @@
 import React from "react";
 
 const LocationButton = (props) => {
-  const { name, isPressed, setFilter } = props;
+  const { name, isPressed, locationFilter, setLocationFilter, residents } = props;
+
+  const addLocationFilter = (residents) => {
+    if (residents.length === 0) {
+      setLocationFilter([]);
+      alert("There are no residents in this location.")
+    };
+    setLocationFilter(residents);
+  };
+
+  const handleOnClick = () => {
+    addLocationFilter(residents);
+    };
 
   return (
     <button
       type="button"
       className="btn toggle-btn"
       // aria-pressed={isPressed}
-      // onClick={() => setFilter(name)}
+      // onClick={() => setLocationFilter(residents)}
+      onClick={handleOnClick}
       >
       <span className="visually-hidden">Show </span>
       <span>{name}</span>

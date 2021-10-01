@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import EpisodeButton from "./EpisodeButton";
 
 const Episodes = (props) => {
-  const { episodeFilter, setEpisodeFilter, addEpisodeFilter } = props;
+  const { episodeFilter, setEpisodeFilter } = props;
   const [episodes, setEpisodes] = useState([]);
   // console.log(episodes)
 
@@ -29,7 +29,6 @@ const Episodes = (props) => {
       isPressed={episodeFilter.includes(episode.url)}
       setEpisodeFilter={setEpisodeFilter}
       episodeFilter={episodeFilter}
-      addEpisodeFilter={addEpisodeFilter}
     />
   ));
 

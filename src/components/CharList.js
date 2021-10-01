@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import Character from "../components/CharCard";
 
 const CharacterList = (props) => {
-  const { episodeFilter, setEpisodeFilter } = props;
+  const { episodeFilter, setEpisodeFilter, locationFilter, setLocationFilter } =
+    props;
   const [characters, setCharacters] = useState([]);
 
   useEffect(() => {
@@ -33,14 +34,29 @@ const CharacterList = (props) => {
           />
         );
       };
-      // console.log(character.episode)
+      // console.log(locationFilter)
 
       const CharacterOnEpisode = episodeFilter.every((episode) =>
         character.episode.includes(episode)
       );
-      if (episodeFilter.length === 0) {
+
+      // const characterURL = `"https://rickandmortyapi.com/api/character/${character.id}"`
+
+      // console.log(characterURL)
+
+      const ResidentOnLocation = locationFilter.includes(character.url)
+      // console.log(ResidentOnLocation)
+
+      const emptyEpisodeFilter = episodeFilter.length === 0
+      const emptyLocationFilter = locationFilter.length === 0
+
+      if (emptyEpisodeFilter && emptyLocationFilter ) {
         return CharacterCards();
-      } else if (CharacterOnEpisode) {
+      } else if (CharacterOnEpisode && emptyLocationFilter) {
+        return CharacterCards();
+      } else if (ResidentOnLocation && emptyEpisodeFilter) {
+        return CharacterCards();
+      } else if (ResidentOnLocation && CharacterOnEpisode) {
         return CharacterCards();
       } else return;
     });

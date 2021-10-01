@@ -4,7 +4,15 @@ import Episodes from "../components/EpisodeList";
 import Locations from "../components/LocationList";
 
 const NavBar = (props) => {
-  const { episodeFilter, setEpisodeFilter, addEpisodeFilter } = props;
+  const {
+    episodeFilter,
+    setEpisodeFilter,
+    addEpisodeFilter,
+    locationFilter,
+    setLocationFilter,
+    addLocationFilter,
+  } = props;
+
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -19,7 +27,6 @@ const NavBar = (props) => {
               <Episodes
                 episodeFilter={episodeFilter}
                 setEpisodeFilter={setEpisodeFilter}
-                addEpisodeFilter={addEpisodeFilter}
               />
               {/* <button type="button" className="btn toggle-btn">
                   <span>Value</span>
@@ -35,7 +42,10 @@ const NavBar = (props) => {
               </NavDropdown.Item> */}
             </NavDropdown>
             <NavDropdown title="Location" id="basic-nav-dropdown">
-              <Locations />
+              <Locations
+                locationFilter={locationFilter}
+                setLocationFilter={setLocationFilter}
+              />
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
