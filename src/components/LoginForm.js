@@ -14,8 +14,8 @@ const LoginForm = () => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.replace("/");
-      const uid = user.uid;
+      window.location.replace("/home");
+      // const uid = user.uid;
       // ...
     }
   });
@@ -29,9 +29,9 @@ const LoginForm = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
+        // const user = userCredential.user;
         // ...
-        window.location.replace("/");
+        window.location.replace("/home");
         // console.log(user);
       })
       .catch((error) => {

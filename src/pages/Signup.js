@@ -15,8 +15,8 @@ const Signup = () => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.replace("/");
-      const uid = user.uid;
+      window.location.replace("/home");
+      // const uid = user.uid;
       // ...
     }
   });
@@ -39,8 +39,8 @@ const Signup = () => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        const user = userCredential.user;
-        window.location.replace("/");
+        // const user = userCredential.user;
+        window.location.replace("/home");
         // ...
       })
       .catch((error) => {
@@ -85,7 +85,7 @@ const Signup = () => {
               <button type="submit" className="btn btn-block btn-primary">
                 Sign Up
               </button>
-              <a href="/login" className="btn btn-block text-primary">
+              <a href="/" className="btn btn-block text-primary">
                 Already registered? Log-in to your account now!
               </a>
             </form>

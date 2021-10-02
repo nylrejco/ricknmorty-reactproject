@@ -12,7 +12,7 @@ const Home = () => {
     if (!user) {
       // User is not signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.replace("/login");
+      window.location.replace("/");
       // const uid = user.uid;
       // console.log(uid)
       // ...

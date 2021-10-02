@@ -4,19 +4,46 @@ import LocationButton from "./LocationButton";
 const Locations = (props) => {
   const { locationFilter, setLocationFilter } = props;
   const [locations, setLocations] = useState([]);
-  // console.log(episodes)
+  const [locationsInfo, setLocationsInfo] = useState([]);
+  const [locationsURLs, setLocationsURLs] = useState([]);
+
+  const locationPageURL = "https://rickandmortyapi.com/api/location";
 
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/location")
+    fetch(locationPageURL)
       .then((response) => response.json())
       .then((data) => {
-        setLocations(data["results"]);
+        setLocationsInfo(data["info"]);
       });
   }, []);
 
   useEffect(() => {
     console.log(locationFilter);
   }, [locationFilter]);
+
+  useEffect(() => {
+    setLocationsURLs([]);
+    for (let i = 1; i <= locationsInfo.pages; i++) {
+      let locationPages = `${locationPageURL}?page=${i}`;
+      setLocationsURLs((locationsURLs) => [...locationsURLs, locationPages]);
+    }
+  }, [locationsInfo]);
+
+  useEffect(() => {
+    let requestLocations = locationsURLs.map((locUrl) => fetch(locUrl));
+    Promise.all(requestLocations)
+      .then((responses) =>
+        Promise.all(responses.map((response) => response.json()))
+      )
+      .then((data) => {
+        let locationsArray = [];
+        data.map((loc) => {
+          return locationsArray = locationsArray.concat(loc["results"]);
+          // console.log(charactersArray.length);
+        });
+        setLocations(locationsArray);
+      });
+  }, [locationsURLs]);
 
   // const LocationResidents = locations.map((location) => (
   //   console.log(location.residents)
@@ -29,7 +56,7 @@ const Locations = (props) => {
       key={location.name}
       name={location.name}
       residents={location.residents}
-      // isPressed={location.name === filter}
+      isPressed={locationFilter === location.residents}
       locationFilter={locationFilter}
       setLocationFilter={setLocationFilter}
     />

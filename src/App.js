@@ -19,7 +19,7 @@ const firebaseConfig = {
   measurementId: process.env.REACT_APP_MEASUREMENT_ID,
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 
 function App() {
@@ -28,8 +28,9 @@ function App() {
       <BrowserRouter>
         <Container>
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/login" component={Login} />
+            <Route exact path="/" component={Login} />
+            {/* <Route exact path="/login" component={Login} /> */}
+            <Route exact path="/home" component={Home} />
             <Route exact path="/signup" component={Signup} />
           </Switch>
         </Container>

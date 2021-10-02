@@ -2,19 +2,52 @@ import React, { useEffect, useState } from "react";
 import Character from "../components/CharCard";
 
 const CharacterList = (props) => {
-  const { episodeFilter, setEpisodeFilter, locationFilter, setLocationFilter } =
-    props;
+  const { episodeFilter, locationFilter } = props;
   const [characters, setCharacters] = useState([]);
+  const [charactersInfo, setCharactersInfo] = useState([]);
+  const [charactersURLs, setCharactersURLs] = useState([]);
+
+  const characterPageURL = "https://rickandmortyapi.com/api/character";
 
   useEffect(() => {
-    fetch("https://rickandmortyapi.com/api/character")
+    fetch(characterPageURL)
       .then((response) => response.json())
       .then((data) => {
-        setCharacters(data["results"]);
+        // setCharacters(data["results"]);
+        setCharactersInfo(data["info"]);
       });
   }, []);
 
-  // console.log(characters);
+  useEffect(() => {
+    setCharactersURLs([]);
+    for (let i = 1; i <= charactersInfo.pages; i++) {
+      let characterPages = `${characterPageURL}?page=${i}`;
+      setCharactersURLs((charactersURLs) => [
+        ...charactersURLs,
+        characterPages,
+      ]);
+    }
+  }, [charactersInfo]);
+
+  //console.log(charactersURLs);
+
+  
+
+  useEffect(() => {
+    let requestCharacters = charactersURLs.map((charUrl) => fetch(charUrl));
+    Promise.all(requestCharacters)
+      .then((responses) =>
+        Promise.all(responses.map((response) => response.json()))
+      )
+      .then((data) => {
+        let charactersArray = [];
+        data.map((char) => {
+          return charactersArray = charactersArray.concat(char["results"]);
+          // console.log(charactersArray.length);
+        });
+        setCharacters(charactersArray);
+      });
+  }, [charactersURLs]);
 
   const CharacterDataList = characters
     // .filter((character) => character.episode.includes(episodeFilter))
@@ -44,13 +77,13 @@ const CharacterList = (props) => {
 
       // console.log(characterURL)
 
-      const ResidentOnLocation = locationFilter.includes(character.url)
+      const ResidentOnLocation = locationFilter.includes(character.url);
       // console.log(ResidentOnLocation)
 
-      const emptyEpisodeFilter = episodeFilter.length === 0
-      const emptyLocationFilter = locationFilter.length === 0
+      const emptyEpisodeFilter = episodeFilter.length === 0;
+      const emptyLocationFilter = locationFilter.length === 0;
 
-      if (emptyEpisodeFilter && emptyLocationFilter ) {
+      if (emptyEpisodeFilter && emptyLocationFilter) {
         return CharacterCards();
       } else if (CharacterOnEpisode && emptyLocationFilter) {
         return CharacterCards();
@@ -58,7 +91,7 @@ const CharacterList = (props) => {
         return CharacterCards();
       } else if (ResidentOnLocation && CharacterOnEpisode) {
         return CharacterCards();
-      } else return;
+      } else return null;
     });
 
   return (

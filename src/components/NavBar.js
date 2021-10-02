@@ -7,10 +7,8 @@ const NavBar = (props) => {
   const {
     episodeFilter,
     setEpisodeFilter,
-    addEpisodeFilter,
     locationFilter,
     setLocationFilter,
-    addLocationFilter,
   } = props;
 
   return (
