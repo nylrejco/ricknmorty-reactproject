@@ -95,8 +95,8 @@ const CharacterList = (props) => {
     });
 
   return (
-    <div className="container">
-      <div className="row">{CharacterDataList}</div>
+    <div className="characters-container">
+      {CharacterDataList}
     </div>
   );
 };

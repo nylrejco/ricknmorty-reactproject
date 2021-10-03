@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CharacterList from "../components/CharList";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import NavBar from "../components/NavBar";
+import Hamburger from "hamburger-react";
 
 const Home = () => {
   const [episodeFilter, setEpisodeFilter] = useState([]);
@@ -18,6 +19,10 @@ const Home = () => {
       // ...
     }
   });
+
+  const showNavBar = () => {
+    document.querySelector(".nav-sidebar").classList.toggle("show");
+  }
 
   const onSignOut = () => {
     signOut(auth)
@@ -39,24 +44,26 @@ const Home = () => {
   // }
 
   return (
-    <div>
-      <div>
-        <NavBar
-          episodeFilter={episodeFilter}
-          setEpisodeFilter={setEpisodeFilter}
-          locationFilter={locationFilter}
-          setLocationFilter={setLocationFilter}
-        />
+    <div className="layout">
+      <div className="nav-layout">
+        <div className="nav-sidebar">
+          <NavBar
+            episodeFilter={episodeFilter}
+            setEpisodeFilter={setEpisodeFilter}
+            locationFilter={locationFilter}
+            setLocationFilter={setLocationFilter}
+            onSignOut={onSignOut}
+            className="nav-sidebar"
+          />
+        </div>
       </div>
-      <h2>Home Page</h2>
-      <button
-        type="button"
-        className="btn btn-block btn-primary"
-        onClick={onSignOut}
-      >
-        Sign Out
-      </button>
       <div>
+        <div className="header">
+          <div className="toggle-btn" onClick={showNavBar}>
+            <Hamburger className="toggle-btn" />
+          </div>
+          <h2>Home Page</h2>
+        </div>
         <CharacterList
           episodeFilter={episodeFilter}
           setEpisodeFilter={setEpisodeFilter}

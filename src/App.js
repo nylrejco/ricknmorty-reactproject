@@ -1,9 +1,8 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Container from "react-bootstrap/Container";
-import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { initializeApp } from "firebase/app";
 // import { getAnalytics } from "firebase/analytics";
@@ -26,14 +25,12 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Container>
-          <Switch>
-            <Route exact path="/" component={Login} />
-            {/* <Route exact path="/login" component={Login} /> */}
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/signup" component={Signup} />
-          </Switch>
-        </Container>
+        <Switch>
+          <Route exact path="/" component={Login} />
+          {/* <Route exact path="/login" component={Login} /> */}
+          <Route exact path="/home" component={Home} />
+          <Route exact path="/signup" component={Signup} />
+        </Switch>
       </BrowserRouter>
     </div>
   );
