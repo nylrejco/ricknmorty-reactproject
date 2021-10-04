@@ -31,9 +31,7 @@ const LocationButton = (props) => {
       // onClick={() => setLocationFilter(residents)}
       onClick={handleOnClick}
     >
-      <span className="visually-hidden">Show </span>
       <span>{name}</span>
-      <span className="visually-hidden"> tasks</span>
     </button>
   );
 };
