@@ -22,6 +22,7 @@ const Home = () => {
 
   const showNavBar = () => {
     document.querySelector(".nav-sidebar").classList.toggle("show");
+    document.querySelector(".btn").classList.toggle("show");
   }
 
   const onSignOut = () => {
