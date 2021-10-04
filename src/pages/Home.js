@@ -22,7 +22,6 @@ const Home = () => {
 
   const showNavBar = () => {
     document.querySelector(".nav-sidebar").classList.toggle("show");
-    document.querySelector(".btn").classList.toggle("show");
   }
 
   const onSignOut = () => {
@@ -60,8 +59,8 @@ const Home = () => {
       </div>
       <div>
         <div className="header">
-          <div className="toggle-btn" onClick={showNavBar}>
-            <Hamburger className="toggle-btn" />
+          <div className="toggle-btn-show" onClick={showNavBar}>
+            <Hamburger />
           </div>
           <h2>Home Page</h2>
         </div>
