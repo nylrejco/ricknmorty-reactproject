@@ -1,3 +1,4 @@
+import { ListItem, ListItemText } from "@mui/material";
 import React from "react";
 
 const EpisodeButton = (props) => {
@@ -18,15 +19,23 @@ const EpisodeButton = (props) => {
   };
 
   return (
-    <button
-      type="button"
-      className="btn toggle-btn"
+    // <button
+    //   type="button"
+    //   className="btn toggle-btn"
+    //   aria-pressed={isPressed}
+    //   // onClick={() => setEpisodeFilter(url)}
+    //   onClick={handleOnClick}
+    // >
+    //   <p>{name}</p>
+    // </button>
+    <ListItem
+      button
       aria-pressed={isPressed}
-      // onClick={() => setEpisodeFilter(url)}
       onClick={handleOnClick}
+      selected={episodeFilter.includes(url)}
     >
-      <span>{name}</span>
-    </button>
+      <ListItemText secondary={name} />
+    </ListItem>
   );
 };
 

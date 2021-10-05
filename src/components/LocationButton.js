@@ -1,3 +1,4 @@
+import { ListItem, ListItemText } from "@mui/material";
 import React from "react";
 
 const LocationButton = (props) => {
@@ -24,15 +25,18 @@ const LocationButton = (props) => {
   };
 
   return (
-    <button
-      type="button"
-      className="btn toggle-btn"
-      aria-pressed={isPressed}
-      // onClick={() => setLocationFilter(residents)}
-      onClick={handleOnClick}
-    >
-      <span>{name}</span>
-    </button>
+    // <button
+    //   type="button"
+    //   className="btn toggle-btn"
+    //   aria-pressed={isPressed}
+    //   // onClick={() => setLocationFilter(residents)}
+    //   onClick={handleOnClick}
+    // >
+    //   <p>{name}</p>
+    // </button>
+    <ListItem button aria-pressed={isPressed} onClick={handleOnClick}>
+      <ListItemText secondary={name} />
+    </ListItem>
   );
 };
 

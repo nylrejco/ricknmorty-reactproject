@@ -63,9 +63,12 @@ const Locations = (props) => {
   ));
 
   return (
-    <div className="container">
-      <div className="row">{LocationList}</div>
-    </div>
+    // <div className="container">
+    //   <div className="row">{LocationList}</div>
+    // </div>
+    <>
+      {LocationList}
+    </>
   );
 };
 

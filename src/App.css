@@ -44,28 +44,8 @@
   /* background-color: black; */
 }
 
-.layout {
-  display: flex;
-  flex-direction: row;
-}
-
-.nav-layout {
-  /* position: fixed; */
-  display: flex;
-}
-
-.show {
-  display: block !important;
-}
-
-.header {
-  display: flex;
-}
-
-.toggle-btn-show {
-  background-color: inherit;
-  display: none;
-  z-index: 5000;
+.characters-box {
+  background-color: rgb(32, 32, 32);
 }
 
 .characters-container {
@@ -80,15 +60,15 @@
 }
 
 .card-container {
-  width: 450px;
+  width: 420px;
   height: 220px;
   display: flex;
   overflow: hidden;
   background: rgb(60, 62, 68);
   border-radius: 0.5rem;
   margin: 0.75rem;
-  box-shadow: rgb(0 0 0 / 10%) 0px 4px 6px -1px,
-    rgb(0 0 0 / 6%) 0px 2px 4px -1px;
+  box-shadow: rgb(0 0 0 / 20%) 0px 4px 6px -1px,
+    rgb(200 200 200 / 12%) 0px 2px 4px -1px;
 }
 
 .character-status {
@@ -198,26 +178,8 @@
   .card-details {
     margin-top: 1.25rem;
   }
-
-  .nav-sidebar {
-    display: none;
-  }
-
-  .toggle-btn-show {
-    display: block;
-  }
-}
-
-.Navbar-main {
-  position: left;
 }
 
 @media screen and (max-width: 767px) {
-  .nav-sidebar {
-    display: none;
-  }
 
-  .toggle-btn-show {
-    display: block;
-  }
 }

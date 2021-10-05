@@ -66,9 +66,9 @@ const Episodes = (props) => {
   // console.log(episodeFilter)
 
   return (
-    <div className="container">
-      <div className="row">{EpisodeList}</div>
-    </div>
+    <>
+      {EpisodeList}
+    </>
   );
 };
 
