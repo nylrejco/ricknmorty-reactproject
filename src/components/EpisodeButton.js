@@ -1,7 +1,10 @@
-import { ListItem, ListItemText } from "@mui/material";
+import { Divider, ListItem, ListItemText } from "@mui/material";
+import { Divide } from "hamburger-react";
 import React from "react";
 
 const EpisodeButton = (props) => {
+  const { classes } = props;
+
   const { name, isPressed, episodeFilter, setEpisodeFilter, url } = props;
 
   const addEpisodeFilter = (url) => {
@@ -28,14 +31,18 @@ const EpisodeButton = (props) => {
     // >
     //   <p>{name}</p>
     // </button>
-    <ListItem
-      button
-      aria-pressed={isPressed}
-      onClick={handleOnClick}
-      selected={episodeFilter.includes(url)}
-    >
-      <ListItemText secondary={name} />
-    </ListItem>
+    <>
+      <Divider />
+      <ListItem
+        button
+        aria-pressed={isPressed}
+        onClick={handleOnClick}
+        selected={episodeFilter.includes(url)}
+        className={`select-${episodeFilter.includes(url)}`}
+      >
+        <ListItemText secondary={name}/>
+      </ListItem>
+    </>
   );
 };
 

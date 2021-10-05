@@ -1,3 +1,4 @@
+import { Divider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import EpisodeButton from "./EpisodeButton";
 
@@ -66,9 +67,9 @@ const Episodes = (props) => {
   // console.log(episodeFilter)
 
   return (
-    <>
+    <div className="filter-text" >
       {EpisodeList}
-    </>
+    </div>
   );
 };
 

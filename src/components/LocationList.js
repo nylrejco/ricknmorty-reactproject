@@ -66,9 +66,9 @@ const Locations = (props) => {
     // <div className="container">
     //   <div className="row">{LocationList}</div>
     // </div>
-    <>
+    <div className="filter-text" >
       {LocationList}
-    </>
+    </div>
   );
 };
 

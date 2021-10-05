@@ -1,4 +1,4 @@
-import { ListItem, ListItemText } from "@mui/material";
+import { Divider, ListItem, ListItemText } from "@mui/material";
 import React from "react";
 
 const LocationButton = (props) => {
@@ -20,23 +20,22 @@ const LocationButton = (props) => {
       setLocationFilter([]);
       // addLocationFilter(residents)
     } else {
-      addLocationFilter(residents)
+      addLocationFilter(residents);
     }
   };
 
   return (
-    // <button
-    //   type="button"
-    //   className="btn toggle-btn"
-    //   aria-pressed={isPressed}
-    //   // onClick={() => setLocationFilter(residents)}
-    //   onClick={handleOnClick}
-    // >
-    //   <p>{name}</p>
-    // </button>
-    <ListItem button aria-pressed={isPressed} onClick={handleOnClick}>
-      <ListItemText secondary={name} />
-    </ListItem>
+    <>
+      <Divider />
+      <ListItem
+        button
+        aria-pressed={isPressed}
+        onClick={handleOnClick}
+        className={`select-${isPressed}`}
+      >
+        <ListItemText secondary={name} />
+      </ListItem>
+    </>
   );
 };
 

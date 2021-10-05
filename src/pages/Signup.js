@@ -4,6 +4,7 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
 } from "firebase/auth";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -11,11 +12,13 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const auth = getAuth();
 
+  let history = useHistory();
+
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
-      window.location.replace("/home");
+      history.push("/home");
       // const uid = user.uid;
       // ...
     }
@@ -40,7 +43,7 @@ const Signup = () => {
       .then((userCredential) => {
         // Signed in
         // const user = userCredential.user;
-        window.location.replace("/home");
+        history.push("/home");
         // ...
       })
       .catch((error) => {
@@ -52,8 +55,8 @@ const Signup = () => {
   };
 
   return (
-    <div>
-      <div className="container my-5">
+    <>
+      <div className="container my-5" id="form-container">
         <h2 className="text-center my-5">Create new account</h2>
         <div className="row">
           <div className="col-md-6 offset-md-3">
@@ -82,17 +85,17 @@ const Signup = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 value={confirmPassword}
               />
-              <button type="submit" className="btn btn-block btn-primary">
+              <button type="submit" className="btn btn-block" id="btn-form">
                 Sign Up
               </button>
-              <a href="/" className="btn btn-block text-primary">
+              <a href="/" className="btn btn-block" id="form-link">
                 Already registered? Log-in to your account now!
               </a>
             </form>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
