@@ -250,40 +250,54 @@ body {
   color: rgb(158, 158, 158);
 }
 
-/* Login Form style */
+/* Login and Signup Form style */
 .login-bg {
-  height: 100vh;
+  background-image: url("./img/rick-and-morty-login.png");
+  background-position: left top;
+  margin-left: -3rem;
+  margin-bottom: -7rem;
+  background-size: 25rem;
+}
+
+.signup-bg {
+  background-image: url("./img/rick-and-morty-bg-login.png");
+  background-position: right top;
+  margin-right: -6rem;
+  margin-bottom: -5rem;
+  background-size: 20rem;
+}
+
+.login-bg,
+.signup-bg {
+  height: 60vh;
   position: fixed;
   left: 0;
   bottom: 0;
-  width: 100%;
-  background-image: url("./img/rick-and-morty-login.png");
+  width: 100vw;
   background-repeat: no-repeat;
-  background-position: left bottom;
-  background-size: 35rem;
   z-index: -1;
   text-align: center;
-  margin-left: -9rem;
+  
 }
-
 
 .container-input {
   position: relative;
-  width: 100%;
+  width: 50%;
   height: 100vh;
   align-items: center;
+  margin: 0 auto;
   /* overflow: hidden; */
 }
 
 #form-container {
-  position: absolute;
-  margin: auto !important;
-  margin-top: 10rem !important;
+  position: fixed;
+  margin-top: 1.5rem !important;
+  margin-bottom: 10rem !important;
   align-items: center;
   width: 100%;
-  height: 50%;
+  height: 80%;
   padding: 0 2rem;
-  border: 2px solid #314e1c;
+  /* border: 2px solid #314e1c; */
   overflow: hidden;
 }
 

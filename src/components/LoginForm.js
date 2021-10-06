@@ -41,7 +41,7 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="container my-5 mx-auto" id="form-container">
+      <div className="container" id="form-container">
         <h2 className="text-center my-5">Enter your credentials</h2>
         <div className="row">
           <div className="col-md-6 offset-md-3">

@@ -91,6 +91,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+      <div className="signup-bg"></div>
     </div>
   );
 };
