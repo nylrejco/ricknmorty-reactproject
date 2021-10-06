@@ -1,22 +1,16 @@
 import {
-  AppBar,
-  Card,
   CardMedia,
-  Collapse,
   Divider,
   List,
   ListItemButton,
   ListItemText,
-  ListSubheader,
   Toolbar,
-  TableFooter,
 } from "@mui/material";
 import { useState } from "react";
 import Episodes from "./EpisodeList";
 import Locations from "./LocationList";
 
 const DrawerComponent = (props) => {
-  // const {window} = props;
   const {
     episodeFilter,
     setEpisodeFilter,

@@ -1,4 +1,3 @@
-import { Divider } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import EpisodeButton from "./EpisodeButton";
 
@@ -10,8 +9,6 @@ const Episodes = (props) => {
 
   const episodePageURL = "https://rickandmortyapi.com/api/episode";
 
-  // console.log(episodes)
-
   useEffect(() => {
     fetch(episodePageURL)
       .then((response) => response.json())
@@ -21,18 +18,12 @@ const Episodes = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log(episodeFilter);
-  }, [episodeFilter]);
-
-  useEffect(() => {
     setEpisodesURLs([]);
     for (let i = 1; i <= episodesInfo.pages; i++) {
       let episodePages = `${episodePageURL}?page=${i}`;
       setEpisodesURLs((episodesURLs) => [...episodesURLs, episodePages]);
     }
   }, [episodesInfo]);
-
-  
 
   useEffect(() => {
     let requestEpisodes = episodesURLs.map((epUrl) => fetch(epUrl));
@@ -44,13 +35,10 @@ const Episodes = (props) => {
         let episodesArray = [];
         data.map((ep) => {
           return episodesArray = episodesArray.concat(ep["results"]);
-          // console.log(charactersArray.length);
         });
         setEpisodes(episodesArray);
       });
   }, [episodesURLs]);
-
-  // console.log(episodes)
 
   const EpisodeList = episodes.map((episode) => (
     <EpisodeButton
@@ -63,8 +51,6 @@ const Episodes = (props) => {
       episodeFilter={episodeFilter}
     />
   ));
-
-  // console.log(episodeFilter)
 
   return (
     <div className="filter-text" >

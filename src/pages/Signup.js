@@ -16,11 +16,9 @@ const Signup = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
+      // User is signed in
       history.push("/home");
       // const uid = user.uid;
-      // ...
     }
   });
 
@@ -44,13 +42,11 @@ const Signup = () => {
         // Signed in
         // const user = userCredential.user;
         history.push("/home");
-        // ...
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         alert(`${errorCode} : ${errorMessage}`);
-        // ..
       });
   };
 

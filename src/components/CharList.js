@@ -13,7 +13,6 @@ const CharacterList = (props) => {
     fetch(characterPageURL)
       .then((response) => response.json())
       .then((data) => {
-        // setCharacters(data["results"]);
         setCharactersInfo(data["info"]);
       });
   }, []);
@@ -29,10 +28,6 @@ const CharacterList = (props) => {
     }
   }, [charactersInfo]);
 
-  //console.log(charactersURLs);
-
-  
-
   useEffect(() => {
     let requestCharacters = charactersURLs.map((charUrl) => fetch(charUrl));
     Promise.all(requestCharacters)
@@ -43,14 +38,12 @@ const CharacterList = (props) => {
         let charactersArray = [];
         data.map((char) => {
           return charactersArray = charactersArray.concat(char["results"]);
-          // console.log(charactersArray.length);
         });
         setCharacters(charactersArray);
       });
   }, [charactersURLs]);
 
   const CharacterDataList = characters
-    // .filter((character) => character.episode.includes(episodeFilter))
     .map((character) => {
       const CharacterCards = () => {
         return (
@@ -67,19 +60,12 @@ const CharacterList = (props) => {
           />
         );
       };
-      // console.log(locationFilter)
 
       const CharacterOnEpisode = episodeFilter.every((episode) =>
         character.episode.includes(episode)
       );
 
-      // const characterURL = `"https://rickandmortyapi.com/api/character/${character.id}"`
-
-      // console.log(characterURL)
-
       const ResidentOnLocation = locationFilter.includes(character.url);
-      // console.log(ResidentOnLocation)
-
       const emptyEpisodeFilter = episodeFilter.length === 0;
       const emptyLocationFilter = locationFilter.length === 0;
 

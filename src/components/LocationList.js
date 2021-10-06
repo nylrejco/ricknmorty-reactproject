@@ -18,10 +18,6 @@ const Locations = (props) => {
   }, []);
 
   useEffect(() => {
-    console.log(locationFilter);
-  }, [locationFilter]);
-
-  useEffect(() => {
     setLocationsURLs([]);
     for (let i = 1; i <= locationsInfo.pages; i++) {
       let locationPages = `${locationPageURL}?page=${i}`;
@@ -39,17 +35,10 @@ const Locations = (props) => {
         let locationsArray = [];
         data.map((loc) => {
           return locationsArray = locationsArray.concat(loc["results"]);
-          // console.log(charactersArray.length);
         });
         setLocations(locationsArray);
       });
   }, [locationsURLs]);
-
-  // const LocationResidents = locations.map((location) => (
-  //   console.log(location.residents)
-  // ))
-
-  //console.log(LocationResidents)
 
   const LocationList = locations.map((location) => (
     <LocationButton
@@ -63,9 +52,6 @@ const Locations = (props) => {
   ));
 
   return (
-    // <div className="container">
-    //   <div className="row">{LocationList}</div>
-    // </div>
     <div className="filter-text" >
       {LocationList}
     </div>

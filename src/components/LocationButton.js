@@ -7,18 +7,14 @@ const LocationButton = (props) => {
 
   const addLocationFilter = (residents) => {
     if (residents.length === 0) {
-      // setLocationFilter([]);
       alert("There are no residents in this location.");
     }
     setLocationFilter(residents);
   };
 
   const handleOnClick = () => {
-    // console.log(residents)
-    // console.log(locationFilter)
     if (locationFilter === residents) {
       setLocationFilter([]);
-      // addLocationFilter(residents)
     } else {
       addLocationFilter(residents);
     }

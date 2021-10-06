@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import CharacterList from "../components/CharList";
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import NavBar from "../components/NavBar";
-// import Hamburger from "hamburger-react";
-import { Box, createTheme } from "@mui/system";
+import { Box } from "@mui/system";
 import {
   AppBar,
   Avatar,
@@ -11,15 +10,10 @@ import {
   Drawer,
   IconButton,
   Toolbar,
-  Typography,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { grey, green } from "@mui/material/colors";
 import { useHistory } from "react-router-dom";
-import Button from "@restart/ui/esm/Button";
-import darkScrollbar from "@mui/material/darkScrollbar";
-import { ThemeProvider } from "@emotion/react";
-import rickAndMortyText from "../img/rick-and-morty-text.png"
 
 const drawerWidth = 250;
 
@@ -28,32 +22,23 @@ const Home = (props) => {
   const [locationFilter, setLocationFilter] = useState([]);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [userEmail, setUserEmail] = useState("unknown")
-  const { window } = props;
   const auth = getAuth();
 
   let history = useHistory();
 
   onAuthStateChanged(auth, (user) => {
     if (!user) {
-      // User is not signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
+      // User is not signed in
       history.push("/");
       // const uid = user.uid;
-      // console.log(user)
-      // ...
     } else {
       setUserEmail(user.email);
     }
   });
 
-  const showNavBar = () => {
-    document.querySelector(".nav-sidebar").classList.toggle("show");
-  };
-
   const onSignOut = () => {
     signOut(auth)
       .then(() => {
-        // window.replace.location("/login");
         // Sign-out successful.
       })
       .catch((error) => {
@@ -63,11 +48,6 @@ const Home = (props) => {
         alert(`${errorCode} : ${errorMessage}`);
       });
   };
-
-  // const addEpisodeFilter = (url) => {
-  //   const newEpisode = {url};
-  //   setEpisodeFilter([...episodeFilter, newEpisode])
-  // }
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -110,7 +90,6 @@ const Home = (props) => {
         className="sidebar-box"
       >
         <Drawer
-          // container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}

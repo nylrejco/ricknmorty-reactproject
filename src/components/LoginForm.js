@@ -15,25 +15,18 @@ const LoginForm = () => {
 
   onAuthStateChanged(auth, (user) => {
     if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
+      // User is signed in
       history.push("/home");
       // const uid = user.uid;
-      // ...
     }
   });
 
   const onLogin = (e) => {
     e.preventDefault();
 
-    // console.log(email, password)
-
-    // console.log(auth)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
-        // const user = userCredential.user;
-        // ...
         history.push("/home");
         // console.log(user);
       })
