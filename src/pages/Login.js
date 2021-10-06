@@ -3,7 +3,7 @@ import LoginForm from "../components/LoginForm";
 
 const Login = () => {
   return (
-    <div className="login-background">
+    <div className="container container-input">
       <LoginForm />
       <div className="login-bg"></div>
     </div>

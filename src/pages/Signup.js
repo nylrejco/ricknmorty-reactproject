@@ -51,7 +51,7 @@ const Signup = () => {
   };
 
   return (
-    <>
+    <div className="container container-input">
       <div className="container my-5" id="form-container">
         <h2 className="text-center my-5">Create new account</h2>
         <div className="row">
@@ -91,7 +91,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
