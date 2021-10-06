@@ -251,6 +251,21 @@ body {
 }
 
 /* Login Form style */
+.login-bg {
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-image: url("./img/rick-and-morty-login.png");
+  background-repeat: no-repeat;
+  background-position: left bottom;
+  background-size: 35rem;
+  z-index: -1;
+  text-align: center;
+  margin-left: -9rem;
+}
+
 #form-container {
   margin-top: 10rem !important;
   margin-bottom: 10rem !important;
@@ -311,5 +326,24 @@ body {
 @media screen and (max-width: 767px) { 
   .avatar-user {
     display: none;
+  }
+
+  .login-bg {
+    background-size: 21rem;
+    margin-left: -3rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .login-bg {
+    background-size: 19rem;
+    margin-left: -4rem;
+  }
+}
+
+@media screen and (max-width: 414px) {
+  .login-bg {
+    background-size: 17rem;
+    margin-left: -5rem;
   }
 }

@@ -5,6 +5,7 @@ const Login = () => {
   return (
     <div className="login-background">
       <LoginForm />
+      <div className="login-bg"></div>
     </div>
   );
 };
